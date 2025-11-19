@@ -2,18 +2,18 @@ load("ec_setup.sage")
 
 # known commitment
 x = Fr(123)
-y = x * G
+Y = x * G
 
 r = Fr.random_element()
-t = r * G
+T = r * G
 
-print("Sending commitment t to the verifier")
+print("Sending commitment T to the verifier")
 
-print("challenge should be computed as: c = hash(G, y, t)")
+print("challenge should be computed as: c = hash(G, Y, T)")
 c = Fr.random_element()
 
 s = r + c * x
 
 print("Sending s to the verifier")
-assert s * G == t + c * y
+assert s * G == T + c * Y
 print("Proof is valid")

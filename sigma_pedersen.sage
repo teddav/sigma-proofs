@@ -11,16 +11,16 @@ print("Sending commitment C to verifier")
 
 r1 = Fr.random_element()
 r2 = Fr.random_element()
-t = r1 * G + r2 * H
+T = r1 * G + r2 * H
 
-print("Sending t to the verifier")
+print("Sending T to the verifier")
 
-print("challenge should be computed as: c = hash(G, H, C, t)")
+print("challenge should be computed as: c = hash(G, H, C, T)")
 c = Fr.random_element()
 
 s1 = r1 + c * x
 s2 = r2 + c * r
 
 print("Sending (s1, s2) to the verifier")
-assert s1 * G + s2 * H == t + c * C
+assert s1 * G + s2 * H == T + c * C
 print("Proof is valid")
